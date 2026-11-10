@@ -1,7 +1,174 @@
 
-title: Gabriel Alaniz
-description: Academic personal website
-theme: minima
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gabriel Alaniz</title>
 
-plugins:
-  - jekyll-feed
+<style>
+body {
+    max-width: 850px;
+    margin: 55px auto;
+    padding: 0 25px;
+    font-family: Arial, sans-serif;
+    color: #222;
+    background: #fff;
+    line-height: 1.65;
+    font-size: 15px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 65px;
+}
+
+a {
+    color: #3973a5;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.intro {
+    display: flex;
+    gap: 35px;
+    align-items: flex-start;
+    margin-bottom: 65px;
+}
+
+.photo {
+    width: 190px;
+    height: 220px;
+    background: #eee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #888;
+    flex-shrink: 0;
+}
+
+h1 {
+    font-size: 27px;
+    font-weight: 500;
+    margin-top: 0;
+}
+
+h2 {
+    font-size: 21px;
+    font-weight: 500;
+    margin-bottom: 25px;
+}
+
+.publication {
+    margin-bottom: 23px;
+}
+
+.publication-title {
+    font-weight: 500;
+}
+
+.publication-info {
+    color: #555;
+    font-size: 14px;
+}
+
+section {
+    margin-bottom: 55px;
+}
+
+footer {
+    margin-top: 70px;
+    font-size: 13px;
+    color: #888;
+}
+
+@media (max-width: 600px) {
+    .intro {
+        flex-direction: column;
+    }
+
+    .photo {
+        width: 160px;
+        height: 180px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <a href="#">Gabriel Alaniz</a>
+    <a href="#publications">Publications</a>
+</nav>
+
+<div class="intro">
+
+    <div class="photo">
+        Add profile photo here
+    </div>
+
+    <div>
+        <h1>Hi! I'm Gabriel.</h1>
+
+        <p>Add a short introduction here.</p>
+
+        <p>Describe your academic interests and current work here.</p>
+
+        <p>Add additional information and relevant links here.</p>
+
+        <p>Add contact information here.</p>
+    </div>
+
+</div>
+
+<section id="publications">
+    <h2>Selected Publications</h2>
+
+    <div class="publication">
+        <div class="publication-title">
+            Add publication title here
+        </div>
+        <div class="publication-info">
+            Add authors and publication year here.
+            <a href="#">[Paper]</a>
+        </div>
+    </div>
+
+    <div class="publication">
+        <div class="publication-title">
+            Add publication title here
+        </div>
+        <div class="publication-info">
+            Add authors and publication year here.
+            <a href="#">[Paper]</a>
+        </div>
+    </div>
+
+    <div class="publication">
+        <div class="publication-title">
+            Add publication title here
+        </div>
+        <div class="publication-info">
+            Add authors and publication year here.
+            <a href="#">[Paper]</a>
+        </div>
+    </div>
+
+</section>
+
+<section>
+    <h2>Teaching</h2>
+    <p>Add teaching experience here.</p>
+</section>
+
+<footer>
+    Gabriel Alaniz
+</footer>
+
+</body>
+</html>
