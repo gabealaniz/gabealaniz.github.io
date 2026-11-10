@@ -3,172 +3,296 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Gabriel Alaniz</title>
 
 <style>
-body {
-    max-width: 850px;
-    margin: 55px auto;
-    padding: 0 25px;
-    font-family: Arial, sans-serif;
-    color: #222;
-    background: #fff;
-    line-height: 1.65;
-    font-size: 15px;
+:root {
+  --background: #fff;
+  --foreground: #111;
+  --link: #2a7ae2;
 }
 
-nav {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 65px;
+body.dark-mode {
+  --background: #1a1a1a;
+  --foreground: #e0e0e0;
+  --link: #6eb5ff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  transition: background-color .3s, color .3s;
+}
+
+.wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 30px;
+}
+
+header {
+  min-height: 55px;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 55px;
+}
+
+.nav a {
+  color: var(--foreground);
+  text-decoration: none;
+}
+
+.site-title {
+  font-size: 26px;
+  font-weight: 300;
+  letter-spacing: -1px;
+}
+
+.nav-links {
+  font-size: 15px;
+}
+
+.nav-links a {
+  margin-left: 20px;
 }
 
 a {
-    color: #3973a5;
-    text-decoration: none;
+  color: var(--link);
+  text-decoration: none;
 }
 
 a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
-.intro {
-    display: flex;
-    gap: 35px;
-    align-items: flex-start;
-    margin-bottom: 65px;
+main {
+  padding: 30px 0;
+  min-height: 500px;
 }
 
-.photo {
-    width: 190px;
-    height: 220px;
-    background: #eee;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #888;
-    flex-shrink: 0;
+.profile-placeholder {
+  float: right;
+  width: 220px;
+  height: 250px;
+  margin: 0 0 20px 25px;
+  background: #eee;
+  border: 1px solid #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #888;
+  font-size: 13px;
 }
 
 h1 {
-    font-size: 27px;
-    font-weight: 500;
-    margin-top: 0;
+  font-size: 26px;
+  font-weight: 400;
+  letter-spacing: -1px;
+  margin-top: 0;
+  margin-bottom: 15px;
 }
 
 h2 {
-    font-size: 21px;
-    font-weight: 500;
-    margin-bottom: 25px;
+  font-size: 24px;
+  font-weight: 400;
+  letter-spacing: -1px;
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+
+p {
+  margin-bottom: 15px;
 }
 
 .publication {
-    margin-bottom: 23px;
+  margin-bottom: 15px;
 }
 
 .publication-title {
-    font-weight: 500;
+  font-weight: 400;
 }
 
-.publication-info {
-    color: #555;
-    font-size: 14px;
+.publication-authors,
+.publication-details {
+  display: block;
 }
 
-section {
-    margin-bottom: 55px;
+.equal {
+  margin-top: 15px;
 }
 
 footer {
-    margin-top: 70px;
-    font-size: 13px;
-    color: #888;
+  border-top: 1px solid #e8e8e8;
+  padding: 25px 0;
+  font-size: 14px;
+  color: #828282;
+}
+
+.moon {
+  border: none;
+  background: transparent;
+  font-size: 19px;
+  cursor: pointer;
+  margin-left: 15px;
 }
 
 @media (max-width: 600px) {
-    .intro {
-        flex-direction: column;
-    }
+  .wrapper {
+    padding: 0 15px;
+  }
 
-    .photo {
-        width: 160px;
-        height: 180px;
-    }
+  .profile-placeholder {
+    width: 145px;
+    height: 175px;
+    margin-left: 15px;
+  }
+
+  .site-title {
+    font-size: 22px;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<nav>
-    <a href="#">Gabriel Alaniz</a>
-    <a href="#publications">Publications</a>
-</nav>
+<header>
+  <div class="wrapper nav">
+    <a class="site-title" href="#">Gabriel Alaniz</a>
 
-<div class="intro">
-
-    <div class="photo">
-        Add profile photo here
+    <div class="nav-links">
+      <a href="#publications">Publications</a>
+      <button class="moon" onclick="toggleDarkMode()">🌙</button>
     </div>
+  </div>
+</header>
 
-    <div>
-        <h1>Hi! I'm Gabriel.</h1>
+<main class="wrapper">
 
-        <p>Add a short introduction here.</p>
+  <div class="profile-placeholder">
+    Profile photo placeholder
+  </div>
 
-        <p>Describe your academic interests and current work here.</p>
+  <h1>Hi! I'm Gabriel.</h1>
 
-        <p>Add additional information and relevant links here.</p>
+  <p>
+    Add introductory paragraph here.
+  </p>
 
-        <p>Add contact information here.</p>
-    </div>
+  <p>
+    Add academic and research interests here.
+  </p>
 
-</div>
+  <p>
+    Add additional professional information here.
+  </p>
 
-<section id="publications">
-    <h2>Selected Publications</h2>
+  <p>
+    Add interests and contact information here.
+  </p>
 
-    <div class="publication">
-        <div class="publication-title">
-            Add publication title here
-        </div>
-        <div class="publication-info">
-            Add authors and publication year here.
-            <a href="#">[Paper]</a>
-        </div>
-    </div>
+  <div style="clear: both;"></div>
 
-    <div class="publication">
-        <div class="publication-title">
-            Add publication title here
-        </div>
-        <div class="publication-info">
-            Add authors and publication year here.
-            <a href="#">[Paper]</a>
-        </div>
-    </div>
+  <h2 id="publications">Selected Publications</h2>
 
-    <div class="publication">
-        <div class="publication-title">
-            Add publication title here
-        </div>
-        <div class="publication-info">
-            Add authors and publication year here.
-            <a href="#">[Paper]</a>
-        </div>
-    </div>
+  <div class="publication">
+    <span class="publication-title">Publication title placeholder one</span>
+    <span class="publication-authors">Author names placeholder</span>
+    <span class="publication-details">Journal / Conference (2026) <a href="#">[Paper]</a></span>
+  </div>
 
-</section>
+  <div class="publication">
+    <span class="publication-title">Publication title placeholder two</span>
+    <span class="publication-authors">Author names placeholder</span>
+    <span class="publication-details">Journal / Conference (2026) <a href="#">[Paper]</a></span>
+  </div>
 
-<section>
-    <h2>Teaching</h2>
-    <p>Add teaching experience here.</p>
-</section>
+  <div class="publication">
+    <span class="publication-title">Publication title placeholder three</span>
+    <span class="publication-authors">Author names placeholder</span>
+    <span class="publication-details">Journal / Conference (2026) <a href="#">[Paper]</a></span>
+  </div>
+
+  <div class="publication">
+    <span class="publication-title">Publication title placeholder four</span>
+    <span class="publication-authors">Author names placeholder</span>
+    <span class="publication-details">Journal / Conference (2025) <a href="#">[Paper]</a></span>
+  </div>
+
+  <div class="publication">
+    <span class="publication-title">Publication title placeholder five</span>
+    <span class="publication-authors">Author names placeholder</span>
+    <span class="publication-details">Journal / Conference (2025) <a href="#">[Paper]</a></span>
+  </div>
+
+  <div class="publication">
+    <span class="publication-title">Publication title placeholder six</span>
+    <span class="publication-authors">Author names placeholder</span>
+    <span class="publication-details">Journal / Conference (2025) <a href="#">[Paper]</a></span>
+  </div>
+
+  <div class="publication">
+    <span class="publication-title">Publication title placeholder seven</span>
+    <span class="publication-authors">Author names placeholder</span>
+    <span class="publication-details">Journal / Conference (2025) <a href="#">[Paper]</a></span>
+  </div>
+
+  <div class="publication">
+    <span class="publication-title">Publication title placeholder eight</span>
+    <span class="publication-authors">Author names placeholder</span>
+    <span class="publication-details">Journal / Conference (2025) <a href="#">[Paper]</a></span>
+  </div>
+
+  <div class="publication">
+    <span class="publication-title">Publication title placeholder nine</span>
+    <span class="publication-authors">Author names placeholder</span>
+    <span class="publication-details">Journal / Conference (2024) <a href="#">[Paper]</a></span>
+  </div>
+
+  <div class="publication">
+    <span class="publication-title">Publication title placeholder ten</span>
+    <span class="publication-authors">Author names placeholder</span>
+    <span class="publication-details">Journal / Conference (2024) <a href="#">[Paper]</a></span>
+  </div>
+
+  <p class="equal">* = Equal contribution</p>
+
+  <h2>Teaching</h2>
+
+  <p>Course placeholder: Teaching Assistant, Semester</p>
+  <p>Course placeholder: Teaching Assistant, Semester</p>
+
+</main>
 
 <footer>
+  <div class="wrapper">
     Gabriel Alaniz
+  </div>
 </footer>
+
+<script>
+function toggleDarkMode() {
+  document.body.classList.toggle("dark-mode");
+  const button = document.querySelector(".moon");
+  button.textContent = document.body.classList.contains("dark-mode")
+    ? "☀️"
+    : "🌙";
+}
+</script>
 
 </body>
 </html>
