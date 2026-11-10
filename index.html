@@ -27,7 +27,8 @@ body {
   margin: 0;
   background: var(--background);
   color: var(--foreground);
-  font-family: "Times New Roman", Times, serif;  font-size: 14px;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 14px;
   line-height: 1.5;
   transition: background-color .3s, color .3s;
 }
@@ -37,6 +38,8 @@ body {
   margin: 0 auto;
   padding: 0 30px;
 }
+
+/* Navigation */
 
 header {
   min-height: 55px;
@@ -56,18 +59,22 @@ header {
 }
 
 .site-title {
-  font-size: 20px;
-  font-weight: 300;
+  font-size: 26px;
+  font-weight: 400;
   letter-spacing: -1px;
 }
 
 .nav-links {
+  display: flex;
+  align-items: center;
   font-size: 14px;
 }
 
 .nav-links a {
   margin-left: 20px;
 }
+
+/* Links */
 
 a {
   color: var(--link);
@@ -77,6 +84,8 @@ a {
 a:hover {
   text-decoration: underline;
 }
+
+/* Main content */
 
 main {
   padding: 30px 0;
@@ -94,31 +103,38 @@ main {
   align-items: center;
   justify-content: center;
   color: #888;
-  font-size: 13px;
+  font-size: 14px;
 }
 
 h1 {
   font-size: 14px;
   font-weight: 400;
-  letter-spacing: -1px;
   margin-top: 0;
-  margin-bottom: 15px;
+  margin-bottom: 12px;
 }
 
 h2 {
   font-size: 14px;
   font-weight: 400;
-  letter-spacing: -1px;
   margin-top: 30px;
   margin-bottom: 15px;
 }
 
+/* Paragraph spacing */
+
 p {
-  margin-bottom: 15px;
+  font-size: 14px;
+  margin-top: 0;
+  margin-bottom: 12px;
+  line-height: 1.5;
 }
 
+/* Publications */
+
 .publication {
+  font-size: 14px;
   margin-bottom: 15px;
+  line-height: 1.5;
 }
 
 .publication-title {
@@ -128,25 +144,40 @@ p {
 .publication-authors,
 .publication-details {
   display: block;
+  font-size: 14px;
 }
 
 .equal {
   margin-top: 15px;
+  font-size: 14px;
 }
+
+/* Moon toggle */
+
+.moon {
+  border: none;
+  background: transparent;
+  font-family: inherit;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 0;
+  margin-left: 15px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 24px;
+  position: relative;
+  top: 0;
+}
+
+/* Footer */
 
 footer {
   border-top: 1px solid #e8e8e8;
   padding: 25px 0;
   font-size: 14px;
   color: #828282;
-}
-
-.moon {
-  border: none;
-  background: transparent;
-  font-size: 20px;
-  cursor: pointer;
-  margin-left: 15px;
 }
 
 @media (max-width: 600px) {
@@ -161,7 +192,7 @@ footer {
   }
 
   .site-title {
-    font-size: 20px;
+    font-size: 26px;
   }
 }
 </style>
@@ -171,12 +202,16 @@ footer {
 
 <header>
   <div class="wrapper nav">
-    <a class="site-title" href="#">Gabriel Alaniz</a>
+
+    <a class="site-title" href="#">
+      Gabriel Alaniz
+    </a>
 
     <div class="nav-links">
       <a href="#publications">Publications</a>
-      <button class="moon" onclick="toggleDarkMode()">🌙</button>
+      <button class="moon" onclick="toggleDarkMode()" aria-label="Toggle dark mode">🌙</button>
     </div>
+
   </div>
 </header>
 
@@ -286,10 +321,13 @@ footer {
 <script>
 function toggleDarkMode() {
   document.body.classList.toggle("dark-mode");
+
   const button = document.querySelector(".moon");
-  button.textContent = document.body.classList.contains("dark-mode")
-    ? "☀️"
-    : "🌙";
+
+  button.textContent =
+    document.body.classList.contains("dark-mode")
+      ? "☀️"
+      : "🌙";
 }
 </script>
 
