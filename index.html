@@ -5,14 +5,329 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Gabriel Alaniz</title>
-<link rel="stylesheet" href="style.css">
+
+<style>
+/* ------------------------------------------------------------------
+   Styles mirror the Jekyll "Minima" theme (v2.5) used by the
+   reference site, plus its dark-mode layer.
+------------------------------------------------------------------- */
+
+/* Reset */
+body, h1, h2, h3, h4, h5, h6, p, blockquote, pre, hr, dl, dd, ol, ul, figure {
+  margin: 0;
+  padding: 0;
+}
+
+/* Base */
+body {
+  font: 400 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji",
+        "Segoe UI Emoji", "Segoe UI Symbol";
+  color: #111;
+  background-color: #fdfdfd;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-feature-settings: "kern" 1;
+  font-kerning: normal;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+h1, h2, h3, h4, h5, h6, p, blockquote, pre, ul, ol, dl, figure {
+  margin-bottom: 15px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 400;
+}
+
+img {
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+/* Links */
+a {
+  color: #2a7ae2;
+  text-decoration: none;
+}
+a:visited {
+  color: #1756a9;
+}
+a:hover {
+  color: #111;
+  text-decoration: underline;
+}
+
+/* Wrapper */
+.wrapper {
+  max-width: 740px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 30px;
+  padding-left: 30px;
+}
+.wrapper:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+@media (max-width: 800px) {
+  .wrapper {
+    max-width: 770px;
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+}
+
+/* Header */
+.site-header {
+  border-top: 5px solid #424242;
+  border-bottom: 1px solid #e8e8e8;
+  min-height: 55.95px;
+  position: relative;
+}
+
+.site-title {
+  font-size: 26px;
+  font-weight: 300;
+  line-height: 54px;
+  letter-spacing: -1px;
+  margin-bottom: 0;
+  float: left;
+}
+.site-title, .site-title:visited {
+  color: #424242;
+}
+
+.site-nav {
+  float: right;
+  line-height: 54px;
+}
+.site-nav input[type="checkbox"] {
+  display: none;
+}
+.site-nav .menu-icon {
+  display: none;
+}
+.site-nav .page-link {
+  color: #111;
+  line-height: 1.5;
+}
+.site-nav .page-link:not(:last-child) {
+  margin-right: 20px;
+}
+
+@media (max-width: 600px) {
+  .site-nav {
+    position: absolute;
+    top: 9px;
+    right: 15px;
+    background-color: #fdfdfd;
+    border: 1px solid #e8e8e8;
+    border-radius: 5px;
+    text-align: right;
+  }
+  .site-nav label[for="nav-trigger"] {
+    display: block;
+    float: right;
+    width: 36px;
+    height: 36px;
+    z-index: 2;
+    cursor: pointer;
+  }
+  .site-nav .menu-icon {
+    display: block;
+    float: right;
+    width: 36px;
+    height: 26px;
+    line-height: 0;
+    padding-top: 10px;
+    text-align: center;
+  }
+  .site-nav .menu-icon > svg {
+    fill: #424242;
+  }
+  .site-nav input ~ .trigger {
+    clear: both;
+    display: none;
+  }
+  .site-nav input:checked ~ .trigger {
+    display: block;
+    padding-bottom: 5px;
+  }
+  .site-nav .page-link {
+    display: block;
+    margin-left: 20px;
+    padding: 5px 10px;
+  }
+  .site-nav .page-link:not(:last-child) {
+    margin-right: 0;
+  }
+}
+
+/* Page content */
+.page-content {
+  padding: 30px 0;
+  flex: 1;
+}
+
+/* Footer */
+.site-footer {
+  border-top: 1px solid #e8e8e8;
+  padding: 30px 0;
+}
+.contact-list {
+  list-style: none;
+  margin-left: 0;
+}
+.footer-col-wrapper {
+  font-size: 15px;
+  color: #828282;
+  margin-left: -15px;
+}
+.footer-col {
+  float: left;
+  margin-bottom: 15px;
+  padding-left: 15px;
+}
+.footer-col-1 {
+  width: calc(35% - 15px);
+}
+.footer-col-2 {
+  width: calc(65% - 15px);
+}
+@media (max-width: 800px) {
+  .footer-col-1,
+  .footer-col-2 {
+    width: calc(50% - 15px);
+  }
+}
+@media (max-width: 600px) {
+  .footer-col {
+    float: none;
+    width: calc(100% - 15px);
+  }
+}
+
+/* Profile photo (swap the placeholder div for an <img> when ready) */
+.profile-photo {
+  float: right;
+  width: 400px;
+  max-width: 100%;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+.profile-placeholder {
+  aspect-ratio: 4 / 5;
+  background: #eee;
+  border: 1px solid #ddd;
+  color: #888;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ------------------------------------------------------------------
+   Dark mode
+------------------------------------------------------------------- */
+body {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+body.dark-mode {
+  background-color: #1a1a1a;
+  color: #e0e0e0;
+}
+body.dark-mode a {
+  color: #6eb5ff;
+}
+body.dark-mode a:visited {
+  color: #d98fff;
+}
+body.dark-mode .site-header {
+  background-color: #2d2d2d;
+  border-bottom: 1px solid #444;
+}
+body.dark-mode .site-footer {
+  background-color: #2d2d2d;
+  border-top: 1px solid #444;
+}
+body.dark-mode .profile-placeholder {
+  background: #2d2d2d;
+  border-color: #444;
+  color: #aaa;
+}
+@media (max-width: 600px) {
+  body.dark-mode .site-nav {
+    background-color: #2d2d2d;
+    border-color: #444;
+  }
+  body.dark-mode .site-nav .menu-icon > svg {
+    fill: #e0e0e0;
+  }
+}
+
+/* Dark mode toggle button */
+.dark-mode-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #333;
+  color: white;
+  border: 2px solid white;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  font-size: 28px;
+  cursor: pointer;
+  z-index: 9999;
+  transition: background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+.dark-mode-toggle:hover {
+  background-color: #555;
+}
+body.dark-mode .dark-mode-toggle {
+  background-color: #f0f0f0;
+  color: #333;
+  border: 2px solid #333;
+}
+body.dark-mode .dark-mode-toggle:hover {
+  background-color: #ddd;
+}
+
+/* Lists (Minima) */
+ul, ol {
+  margin-left: 30px;
+}
+li > ul, li > ol {
+  margin-bottom: 0;
+}
+
+/* Resource list headings on the Students page */
+.resource-group {
+  margin-bottom: 5px;
+}
+
+/* Tab views (single-page site) */
+.view {
+  display: none;
+}
+.view.active {
+  display: block;
+}
+</style>
 </head>
 
 <body>
 
 <header class="site-header" role="banner">
   <div class="wrapper">
-    <a class="site-title" rel="author" href="index.html">Gabriel Alaniz</a>
+    <a class="site-title" rel="author" href="#">Gabriel Alaniz</a>
 
     <nav class="site-nav">
       <input type="checkbox" id="nav-trigger" class="nav-trigger" />
@@ -25,8 +340,8 @@
       </label>
 
       <div class="trigger">
-        <a class="page-link" href="index.html#publications">Publications</a>
-        <a class="page-link" href="students.html">Students</a>
+        <a class="page-link" href="#publications">Publications</a>
+        <a class="page-link" href="#students">Students</a>
       </div>
     </nav>
   </div>
@@ -39,16 +354,21 @@
 <main class="page-content" aria-label="Content">
   <div class="wrapper">
 
+    <!-- ================= HOME TAB ================= -->
+    <div class="view active" id="home-view">
+
     <!-- Replace this div with: <img class="profile-photo" src="assets/photo.png" alt="Gabriel Alaniz" width="400"> -->
     <div class="profile-photo profile-placeholder">Profile photo placeholder</div>
 
     <p>Hi! I'm Gabriel.</p>
 
-    <p>I am a pre-doctoral researcher pursuing a Ph.D. in Clinical Psychology, currently advised by Drs. Dana Saifan & Blanche Wright.</p>
+    <p>I'm a pre-doctoral researcher pursuing a Ph.D. in clinical psychology, advised by Dana Saifan, Ph.D. and Blanche Wright, Ph.D. I recently completed my M.A. in Psychology at California State University, Los Angeles, and I'm now a visiting scholar in the DIMENSION Lab at the University of Oregon.</p>
 
-    <p>I am interested in social determinants of mental health; mental health services and policy research, implementation science; intervention development; mixed-methods, advanced statistical methods, and community-based participatory research.</p>
+    <p>I study the social determinants of mental health and how mental health services can better reach and serve the communities that need them. My interests include mental health services and policy research, implementation science, and intervention development. To do this work, I use mixed methods, advanced statistical approaches, and community-based participatory research.</p>
 
-    <p>I love mentoring undergraduate students, especially on preparing for research conferences, developing research skills, and planning next steps in academia. If you're a student with questions, please visit the <a href="students.html">Students</a> page.</p>
+    <p>Right now, that means projects on codeswitching and mental health among Muslim American young adults, family pressure around college and well-being among students of color, and community readiness for digital evidence-based practices with Latinx stakeholders.</p>
+
+    <p>I love mentoring undergraduate students, especially on preparing for research conferences, developing research skills, and planning next steps in academia. If you're a student with questions, please visit the <a href="#students">Students</a> page.</p>
 
     <p>Add personal interests here. You can reach me at <a href="mailto:galaniz@uoregon.edu">galaniz@uoregon.edu</a>.</p>
 
@@ -99,60 +419,12 @@
     <h2 id="research">Research Experience</h2>
 
     <p>
-      <strong>Visiting Scholar</strong>, DIMENSION Lab, University of Oregon (2026&ndash;Present)<br>
-      Supervisor: Blanche Wright, Ph.D.
+      Visiting Scholar, DIMENSION Lab, University of Oregon (2026&ndash;Present)<br>
+      Post-bacc Research Assistant, CARE Lab, UCLA (2023&ndash;Present)<br>
+      Graduate Student, FREEDOM Lab, California State University, Los Angeles (2024&ndash;2026)<br>
+      Honors Thesis, Departmental Honors Program, UCLA (2022&ndash;2023)<br>
+      Research Assistant, DiSH Lab, UCLA (2021&ndash;2023)
     </p>
-    <ul>
-      <li>Assisting a project (actively involved in drafting the IRB application) exploring system readiness for adoption of digital evidence-based practices with community Latinx stakeholders</li>
-      <li>Participating in community-partnership events and data collection</li>
-      <li>Facilitated parent interviews and assisting in transcription validation</li>
-    </ul>
-
-    <p>
-      <strong>Post-bacc Research Assistant</strong>, CARE Lab, UCLA (2023&ndash;Present)<br>
-      Supervisors: Yazmin Meza Lazaro, M.A. &amp; Anna Lau, Ph.D.
-    </p>
-    <ul>
-      <li>Lead author on a manuscript investigating the association between familial pressure to attend college and mental and physical health among high school students of color</li>
-      <li>Constructed the conceptual framework, conducted data cleaning and regression analysis, and led drafting and revisions on the manuscript (in preparation)</li>
-      <li>Presented research findings through poster sessions at national conferences</li>
-      <li>Assisted in ongoing lab projects (qualitative thematic coding and bilingual English/Spanish participant outreach)</li>
-    </ul>
-
-    <p>
-      <strong>Graduate Student</strong>, FREEDOM Lab, California State University, Los Angeles (2024&ndash;2026)<br>
-      Supervisor: Dana Saifan, Ph.D.
-    </p>
-    <ul>
-      <li>Completed a master's thesis examining the associations between codeswitching and mental health among Muslim American young adults</li>
-      <li>Performed multivariate and path analyses, via SPSS, of large-scale survey data</li>
-      <li>Presented research findings through poster sessions at multiple national conferences</li>
-      <li>Mentored undergraduate research assistants on professional development, conference preparation, and research methods</li>
-      <li>Assisted in ongoing lab projects through data collection, participant compensation, and study design</li>
-    </ul>
-
-    <p>
-      <strong>Honors Thesis</strong>, Departmental Honors Program, UCLA (2022&ndash;2023)<br>
-      Supervisors: Alejandra Lopez, B.A. &amp; Janet Tomiyama, Ph.D.
-    </p>
-    <ul>
-      <li>Designed, pre-registered, and executed an independent honors thesis investigating the effects of an online social media literacy intervention on body image and weight bias internalization</li>
-      <li>Gained experience in submitting projects to the IRB, including a clinical trial protocol</li>
-      <li>Recruited and screened 170 participants via Qualtrics and provided compensation via UCLA's SONA (subject pool) system</li>
-      <li>Published an extended abstract in the UCLA Undergraduate Psi Chi Research Journal and presented findings through poster sessions at local academic conferences</li>
-    </ul>
-
-    <p>
-      <strong>Research Assistant</strong>, DiSH Lab, UCLA (2021&ndash;2023)<br>
-      PI: Janet Tomiyama, Ph.D.
-    </p>
-    <ul>
-      <li>Assisted in an ongoing lab project investigating weight stigma's effect on physiological stress and health</li>
-      <li>Trained to act as a confederate participant administering weight stigma to other participants, prioritizing ethical experimental protocol</li>
-      <li>Engaged with participants throughout the experiment to provide instructions, deliver and measure experimental materials (e.g., food), and provide debrief materials</li>
-      <li>Aided in participant recruitment by identifying local community centers, targeting high-enrollment courses, and distributing flyers around campus</li>
-      <li>Attended weekly lab meetings to discuss study progress and academic/professional development</li>
-    </ul>
 
     <h2 id="presentations">Presentations</h2>
 
@@ -172,49 +444,27 @@
 
     <p><strong>Alaniz, G.</strong>, Lopez, A., &amp; Tomiyama, A. J. (2023, May). <em>Testing a social media literacy intervention aimed at reducing weight bias internalization, appearance comparison, appearance ideal internalization and body dissatisfaction</em>. [Poster presentation]. 2023 UCLA Psychology Undergraduate Research Conference, Los Angeles, CA. <a href="https://osf.io/xuc5w">https://osf.io/xuc5w</a></p>
 
-    <h2 id="mentorship">Mentorship Experience</h2>
+    <h2 id="mentorship">Mentorship</h2>
 
     <p>
-      <strong>DIMENSION Lab, Student Mentor</strong> (2026&ndash;Present)<br>
-      Mentoring undergraduate students, primarily on preparation for research conferences and academic/career development
+      Student Mentor, DIMENSION Lab, University of Oregon (2026&ndash;Present)<br>
+      Student Mentor, FREEDOM Lab, California State University, Los Angeles (2025&ndash;2026)<br>
+      Student Mentor, DiSH Lab Summer Intensive, UCLA (June 2023)
     </p>
+
+    <h2 id="teaching">Teaching</h2>
 
     <p>
-      <strong>FREEDOM Lab, Student Mentor</strong> (2025&ndash;2026)<br>
-      Mentoring undergraduate students, primarily on preparation for research conferences and academic/career development
+      (CSULA) Positive Psychology: Graduate Assistant, Spring '25 &amp; Fall '25<br>
+      (CSULA) Human Violence and Individual Change: Graduate Assistant, Spring '26<br>
+      (CSULA) Introductory Psychology: Graduate Assistant, Spring '26
     </p>
-
-    <p>
-      <strong>DiSH Lab, Student Mentor</strong> (June 2023)<br>
-      DiSH Lab Summer Intensive funded by the National Science Foundation. Mentored underrepresented community college students on statistics, conducting research, understanding science, and career development
-    </p>
-
-    <h2 id="teaching">Teaching Experience</h2>
-
-    <p>
-      <strong>Graduate Assistant</strong>, Psychology Department, California State University, Los Angeles (2025&ndash;2026)<br>
-      Assisted in teaching the following courses:
-    </p>
-    <ul>
-      <li>Positive Psychology (Spring 2025 in-person &amp; Fall 2025 asynchronous)</li>
-      <li>Human Violence and Individual Change (Spring 2026 asynchronous)</li>
-      <li>Introductory Psychology (Spring 2026 asynchronous)</li>
-    </ul>
-    <ul>
-      <li>Held weekly office hours and hosted review sessions to prepare students for exam content</li>
-      <li>Provided weekly, detailed, and constructive feedback on students' written assignments</li>
-    </ul>
 
     <h2 id="service">Service</h2>
 
     <p>
-      <strong>Community Workshops (PREPARADOS)</strong> (2026&ndash;Present)<br>
-      Assisting Dr. Blanche Wright in facilitating an evidence-informed family workshop aimed at supporting Latinx parents in having conversations with their children surrounding immigration enforcement. Collaborated with the following organizations: Heart of Los Angeles (HOLA) and Latino Network
-    </p>
-
-    <p>
-      <strong>UNEO, Inc., Student Contributor</strong> (2022&ndash;2023)<br>
-      Contributed to the development of a mental health app dedicated to aiding adolescents, providing bridges to mental health resources. Advocated for research-based practices to inform and assist users in addressing stressors and implementing stress relief strategies, and offered support in various aspects of the app's creation and functionality
+      Community Workshops (PREPARADOS), Assisting Facilitator (2026&ndash;Present)<br>
+      UNEO, Inc., Student Contributor (2022&ndash;2023)
     </p>
 
     <h2 id="skills">Skills</h2>
@@ -223,6 +473,27 @@
       <strong>Languages:</strong> English &amp; Spanish<br>
       <strong>Research &amp; Data Analysis:</strong> SPSS, AMOS, Qualtrics, survey design, literature review &amp; synthesis, quantitative/qualitative data management and cleaning
     </p>
+
+    </div>
+
+    <!-- ================= STUDENTS TAB ================= -->
+    <div class="view" id="students-view">
+
+    <h1>Students</h1>
+
+    <h2 id="contact">Contact</h2>
+
+    <p>If you're a student with questions about getting started in research, preparing for a conference, applying to graduate programs, or planning your next steps in psychology, I'd be happy to hear from you.</p>
+
+    <p>Email me at <a href="mailto:galaniz@uoregon.edu?subject=Student%20question">galaniz@uoregon.edu</a>. It helps if you include your name, school, year, and what you'd like to talk about.</p>
+
+    <br>
+
+    <h2 id="resources">Resources</h2>
+
+    <!-- Add resource links here when ready. -->
+
+    </div>
 
   </div>
 </main>
@@ -243,7 +514,53 @@
   </div>
 </footer>
 
-<script src="script.js"></script>
+<script>
+// ---- Dark mode ----
+(function () {
+  var toggleIcon = document.getElementById('toggle-icon');
+  var saved = 'light';
+  try { saved = localStorage.getItem('theme') || 'light'; } catch (e) {}
+
+  if (saved === 'dark') {
+    document.body.classList.add('dark-mode');
+    toggleIcon.textContent = '☀️';
+  }
+
+  document.getElementById('dark-mode-toggle').addEventListener('click', function () {
+    var dark = document.body.classList.toggle('dark-mode');
+    toggleIcon.textContent = dark ? '☀️' : '🌙';
+    try { localStorage.setItem('theme', dark ? 'dark' : 'light'); } catch (e) {}
+  });
+})();
+
+// ---- Tabs (Home / Students) ----
+(function () {
+  var home = document.getElementById('home-view');
+  var students = document.getElementById('students-view');
+  var navToggle = document.getElementById('nav-trigger');
+
+  function route() {
+    var hash = window.location.hash;
+    var showStudents = (hash === '#students');
+    home.classList.toggle('active', !showStudents);
+    students.classList.toggle('active', showStudents);
+    document.title = showStudents ? 'Students | Gabriel Alaniz' : 'Gabriel Alaniz';
+    if (navToggle) navToggle.checked = false;
+
+    if (showStudents) {
+      window.scrollTo(0, 0);
+    } else if (hash.length > 1) {
+      var target = document.getElementById(hash.slice(1));
+      if (target) target.scrollIntoView();
+    } else {
+      window.scrollTo(0, 0);
+    }
+  }
+
+  window.addEventListener('hashchange', route);
+  route();
+})();
+</script>
 
 </body>
 </html>
