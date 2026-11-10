@@ -1,335 +1,249 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Gabriel Alaniz</title>
-
-<style>
-:root {
-  --background: #fff;
-  --foreground: #111;
-  --link: #2a7ae2;
-}
-
-body.dark-mode {
-  --background: #1a1a1a;
-  --foreground: #e0e0e0;
-  --link: #6eb5ff;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  background: var(--background);
-  color: var(--foreground);
-  font-family: "Times New Roman", Times, serif;
-  font-size: 14px;
-  line-height: 1.5;
-  transition: background-color .3s, color .3s;
-}
-
-.wrapper {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 0 30px;
-}
-
-/* Navigation */
-
-header {
-  min-height: 55px;
-  border-bottom: 1px solid #e8e8e8;
-}
-
-.nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  min-height: 55px;
-}
-
-.nav a {
-  color: var(--foreground);
-  text-decoration: none;
-}
-
-.site-title {
-  font-size: 26px;
-  font-weight: 400;
-  letter-spacing: -1px;
-}
-
-.nav-links {
-  display: flex;
-  align-items: center;
-  font-size: 14px;
-}
-
-.nav-links a {
-  margin-left: 20px;
-}
-
-/* Links */
-
-a {
-  color: var(--link);
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-/* Main content */
-
-main {
-  padding: 30px 0;
-  min-height: 500px;
-}
-
-.profile-placeholder {
-  float: right;
-  width: 220px;
-  height: 250px;
-  margin: 0 0 20px 25px;
-  background: #eee;
-  border: 1px solid #ddd;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #888;
-  font-size: 14px;
-}
-
-h1 {
-  font-size: 14px;
-  font-weight: 400;
-  margin-top: 0;
-  margin-bottom: 12px;
-}
-
-h2 {
-  font-size: 14px;
-  font-weight: 400;
-  margin-top: 30px;
-  margin-bottom: 15px;
-}
-
-/* Paragraph spacing */
-
-p {
-  font-size: 14px;
-  margin-top: 0;
-  margin-bottom: 12px;
-  line-height: 1.5;
-}
-
-/* Publications */
-
-.publication {
-  font-size: 14px;
-  margin-bottom: 15px;
-  line-height: 1.5;
-}
-
-.publication-title {
-  font-weight: 400;
-}
-
-.publication-authors,
-.publication-details {
-  display: block;
-  font-size: 14px;
-}
-
-.equal {
-  margin-top: 15px;
-  font-size: 14px;
-}
-
-/* Moon toggle */
-
-.moon {
-  border: none;
-  background: transparent;
-  font-family: inherit;
-  font-size: 14px;
-  cursor: pointer;
-  padding: 0;
-  margin-left: 15px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 20px;
-  height: 24px;
-  position: relative;
-  top: 0;
-}
-
-/* Footer */
-
-footer {
-  border-top: 1px solid #e8e8e8;
-  padding: 25px 0;
-  font-size: 14px;
-  color: #828282;
-}
-
-@media (max-width: 600px) {
-  .wrapper {
-    padding: 0 15px;
-  }
-
-  .profile-placeholder {
-    width: 145px;
-    height: 175px;
-    margin-left: 15px;
-  }
-
-  .site-title {
-    font-size: 26px;
-  }
-}
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<header>
-  <div class="wrapper nav">
+<header class="site-header" role="banner">
+  <div class="wrapper">
+    <a class="site-title" rel="author" href="index.html">Gabriel Alaniz</a>
 
-    <a class="site-title" href="#">
-      Gabriel Alaniz
-    </a>
+    <nav class="site-nav">
+      <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+      <label for="nav-trigger">
+        <span class="menu-icon">
+          <svg viewBox="0 0 18 15" width="18px" height="15px">
+            <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+          </svg>
+        </span>
+      </label>
 
-    <div class="nav-links">
-      <a href="#publications">Publications</a>
-      <button class="moon" onclick="toggleDarkMode()" aria-label="Toggle dark mode">🌙</button>
-    </div>
-
+      <div class="trigger">
+        <a class="page-link" href="index.html#publications">Publications</a>
+        <a class="page-link" href="students.html">Students</a>
+      </div>
+    </nav>
   </div>
 </header>
 
-<main class="wrapper">
+<button class="dark-mode-toggle" id="dark-mode-toggle" aria-label="Toggle dark mode">
+  <span id="toggle-icon">🌙</span>
+</button>
 
-  <div class="profile-placeholder">
-    Profile photo placeholder
+<main class="page-content" aria-label="Content">
+  <div class="wrapper">
+
+    <!-- Replace this div with: <img class="profile-photo" src="assets/photo.png" alt="Gabriel Alaniz" width="400"> -->
+    <div class="profile-photo profile-placeholder">Profile photo placeholder</div>
+
+    <p>Hi! I'm Gabriel.</p>
+
+    <p>I'm a psychology researcher and a visiting scholar in the DIMENSION Lab at the University of Oregon, where I work with Blanche Wright, Ph.D. I completed my M.A. in Psychology at California State University, Los Angeles in May 2026, and I was a 2025&ndash;2026 Sally Casanova Pre-Doctoral Scholar.</p>
+
+    <p>My research examines how identity, culture, and family context shape mental health and well-being. My master's thesis, advised by Dana Saifan, Ph.D., investigated codeswitching and mental health among Muslim American young adults. As a post-baccalaureate research assistant in the CARE Lab at UCLA, I study how familial pressure to attend college relates to the mental and physical health of high school students of color. I'm also contributing to a project on system readiness for adopting digital evidence-based practices with Latinx community stakeholders.</p>
+
+    <p>I love mentoring undergraduate students, especially on preparing for research conferences, developing research skills, and planning next steps in academia. If you're a student with questions, please visit the <a href="students.html">Students</a> page.</p>
+
+    <p>Add personal interests here. You can reach me at <a href="mailto:galaniz@uoregon.edu">galaniz@uoregon.edu</a>.</p>
+
+    <br><br><br>
+
+    <h2 id="education">Education</h2>
+
+    <p>
+      <strong>M.A. Psychology</strong>, California State University, Los Angeles (May 2026)<br>
+      Thesis: <em>Conformity at a Cost: Codeswitching and Its Mental Health Implications for Muslim Americans</em><br>
+      Supervisor: Dana Saifan, Ph.D.
+    </p>
+
+    <p>
+      <strong>B.A. Psychology</strong>, University of California, Los Angeles (June 2023)<br>
+      Honors Thesis: <em>Testing a Social Media Literacy Intervention Aimed at Reducing Weight Bias Internalization, Appearance Comparison, Appearance Ideal Internalization and Body Dissatisfaction</em><br>
+      Supervisor: Janet Tomiyama, Ph.D.
+    </p>
+
+    <p>
+      <strong>A.A. Psychology; A.A. General Studies: Social &amp; Behavioral Sciences</strong>, Los Angeles Valley College (June 2021)<br>
+      Magna Cum Laude
+    </p>
+
+    <h2 id="honors">Honors &amp; Awards</h2>
+
+    <p>
+      2025&ndash;2026: Sally Casanova Pre-Doctoral Scholar, California State University Office of the Chancellor<br>
+      2025&ndash;2026: Honorable Mention, California Pre-Doctoral Program Health Professions Track, CSU Office of the Chancellor<br>
+      2022&ndash;2023: Psychology Departmental Honors Program, University of California, Los Angeles<br>
+      2019&ndash;2021: Transfer Alliance/Honors Program (TAP), Los Angeles Valley College
+    </p>
+
+    <h2 id="publications">Publications Under Review</h2>
+
+    <p>
+      <strong>College Expectations, Family Functioning, and Well-Being Among Latine and Asian American Pacific Islander High-Achieving Students</strong><br>
+      <strong>Alaniz, G.</strong>, Meza Lazaro, Y., Doan, S., Fung, J., Adjah, F. T., &amp; Lau, A. S.<br>
+      <em>Under review</em>
+    </p>
+
+    <p>
+      <strong>Navigating Multiple Identities: Codeswitching and Mental Health Among Muslim American Young Adults</strong><br>
+      <strong>Alaniz, G.</strong> &amp; Saifan, D.<br>
+      <em>Under review</em>
+    </p>
+
+    <h2 id="research">Research Experience</h2>
+
+    <p>
+      <strong>Visiting Scholar</strong>, DIMENSION Lab, University of Oregon (2026&ndash;Present)<br>
+      Supervisor: Blanche Wright, Ph.D.
+    </p>
+    <ul>
+      <li>Assisting a project (actively involved in drafting the IRB application) exploring system readiness for adoption of digital evidence-based practices with community Latinx stakeholders</li>
+      <li>Participating in community-partnership events and data collection</li>
+      <li>Facilitated parent interviews and assisting in transcription validation</li>
+    </ul>
+
+    <p>
+      <strong>Post-bacc Research Assistant</strong>, CARE Lab, UCLA (2023&ndash;Present)<br>
+      Supervisors: Yazmin Meza Lazaro, M.A. &amp; Anna Lau, Ph.D.
+    </p>
+    <ul>
+      <li>Lead author on a manuscript investigating the association between familial pressure to attend college and mental and physical health among high school students of color</li>
+      <li>Constructed the conceptual framework, conducted data cleaning and regression analysis, and led drafting and revisions on the manuscript (in preparation)</li>
+      <li>Presented research findings through poster sessions at national conferences</li>
+      <li>Assisted in ongoing lab projects (qualitative thematic coding and bilingual English/Spanish participant outreach)</li>
+    </ul>
+
+    <p>
+      <strong>Graduate Student</strong>, FREEDOM Lab, California State University, Los Angeles (2024&ndash;2026)<br>
+      Supervisor: Dana Saifan, Ph.D.
+    </p>
+    <ul>
+      <li>Completed a master's thesis examining the associations between codeswitching and mental health among Muslim American young adults</li>
+      <li>Performed multivariate and path analyses, via SPSS, of large-scale survey data</li>
+      <li>Presented research findings through poster sessions at multiple national conferences</li>
+      <li>Mentored undergraduate research assistants on professional development, conference preparation, and research methods</li>
+      <li>Assisted in ongoing lab projects through data collection, participant compensation, and study design</li>
+    </ul>
+
+    <p>
+      <strong>Honors Thesis</strong>, Departmental Honors Program, UCLA (2022&ndash;2023)<br>
+      Supervisors: Alejandra Lopez, B.A. &amp; Janet Tomiyama, Ph.D.
+    </p>
+    <ul>
+      <li>Designed, pre-registered, and executed an independent honors thesis investigating the effects of an online social media literacy intervention on body image and weight bias internalization</li>
+      <li>Gained experience in submitting projects to the IRB, including a clinical trial protocol</li>
+      <li>Recruited and screened 170 participants via Qualtrics and provided compensation via UCLA's SONA (subject pool) system</li>
+      <li>Published an extended abstract in the UCLA Undergraduate Psi Chi Research Journal and presented findings through poster sessions at local academic conferences</li>
+    </ul>
+
+    <p>
+      <strong>Research Assistant</strong>, DiSH Lab, UCLA (2021&ndash;2023)<br>
+      PI: Janet Tomiyama, Ph.D.
+    </p>
+    <ul>
+      <li>Assisted in an ongoing lab project investigating weight stigma's effect on physiological stress and health</li>
+      <li>Trained to act as a confederate participant administering weight stigma to other participants, prioritizing ethical experimental protocol</li>
+      <li>Engaged with participants throughout the experiment to provide instructions, deliver and measure experimental materials (e.g., food), and provide debrief materials</li>
+      <li>Aided in participant recruitment by identifying local community centers, targeting high-enrollment courses, and distributing flyers around campus</li>
+      <li>Attended weekly lab meetings to discuss study progress and academic/professional development</li>
+    </ul>
+
+    <h2 id="presentations">Presentations</h2>
+
+    <p><strong>Alaniz, G.</strong>, Meza Lazaro, Y., Doan, S., Fung, J., Adjah, F. T., &amp; Lau, A. S. (2025, November). <em>Under pressure: The role of family flexibility in the well-being of high-achieving first-generation youth</em>. [Poster presentation]. 2025 Association for Behavioral and Cognitive Therapies, New Orleans, LA.</p>
+
+    <p><strong>Alaniz, G.</strong> &amp; Saifan, D. (2025, June). <em>Conformity at a cost: Code-switching and its mental health implications for Muslim Americans</em>. [Poster presentation]. 2025 Society for the Psychological Study of Social Issues, Portland, OR.</p>
+
+    <p><strong>Alaniz, G.</strong> &amp; Saifan, D. (2025, May). <em>Conformity at a cost: Code-switching and its mental health implications for Muslim Americans</em>. [Poster presentation]. 2025 Western Psychological Association Convention, Las Vegas, NV.</p>
+
+    <p><strong>Alaniz, G.</strong> &amp; Saifan, D. (2025, February). <em>Conformity at a cost: Code-switching and its mental health implications for Muslim Americans</em>. [Poster presentation]. Student Symposium on Research, Scholarship, and Creative Activities at Cal State LA, Los Angeles, CA.</p>
+
+    <p>Gutierrez-Gallardo, A., <strong>Alaniz, G.</strong>, &amp; Saifan, D. (2025, February). <em>Socioeconomic status and its relationship with anxiety</em>. [Poster presentation]. Student Symposium on Research, Scholarship, and Creative Activities at Cal State LA, Los Angeles, CA.</p>
+
+    <p><strong>Alaniz, G.</strong>, Lopez, A., &amp; Tomiyama, A. J. (2023, June). <em>Testing a social media literacy intervention aimed at reducing weight bias internalization, appearance comparison, appearance ideal internalization and body dissatisfaction</em>. [Poster presentation]. 2023 UCLA Psi Chi Conference, Los Angeles, CA. <a href="https://osf.io/xuc5w">https://osf.io/xuc5w</a></p>
+
+    <p><strong>Alaniz, G.</strong>, Lopez, A., &amp; Tomiyama, A. J. (2023, May). <em>Testing a social media literacy intervention aimed at reducing weight bias internalization, appearance comparison, appearance ideal internalization and body dissatisfaction</em>. [Pre-recorded presentation]. 2023 UCLA Undergraduate Research &amp; Creativity Showcase, Los Angeles, CA. <a href="https://osf.io/xuc5w">https://osf.io/xuc5w</a></p>
+
+    <p><strong>Alaniz, G.</strong>, Lopez, A., &amp; Tomiyama, A. J. (2023, May). <em>Testing a social media literacy intervention aimed at reducing weight bias internalization, appearance comparison, appearance ideal internalization and body dissatisfaction</em>. [Poster presentation]. 2023 UCLA Psychology Undergraduate Research Conference, Los Angeles, CA. <a href="https://osf.io/xuc5w">https://osf.io/xuc5w</a></p>
+
+    <h2 id="mentorship">Mentorship Experience</h2>
+
+    <p>
+      <strong>DIMENSION Lab, Student Mentor</strong> (2026&ndash;Present)<br>
+      Mentoring undergraduate students, primarily on preparation for research conferences and academic/career development
+    </p>
+
+    <p>
+      <strong>FREEDOM Lab, Student Mentor</strong> (2025&ndash;2026)<br>
+      Mentoring undergraduate students, primarily on preparation for research conferences and academic/career development
+    </p>
+
+    <p>
+      <strong>DiSH Lab, Student Mentor</strong> (June 2023)<br>
+      DiSH Lab Summer Intensive funded by the National Science Foundation. Mentored underrepresented community college students on statistics, conducting research, understanding science, and career development
+    </p>
+
+    <h2 id="teaching">Teaching Experience</h2>
+
+    <p>
+      <strong>Graduate Assistant</strong>, Psychology Department, California State University, Los Angeles (2025&ndash;2026)<br>
+      Assisted in teaching the following courses:
+    </p>
+    <ul>
+      <li>Positive Psychology (Spring 2025 in-person &amp; Fall 2025 asynchronous)</li>
+      <li>Human Violence and Individual Change (Spring 2026 asynchronous)</li>
+      <li>Introductory Psychology (Spring 2026 asynchronous)</li>
+    </ul>
+    <ul>
+      <li>Held weekly office hours and hosted review sessions to prepare students for exam content</li>
+      <li>Provided weekly, detailed, and constructive feedback on students' written assignments</li>
+    </ul>
+
+    <h2 id="service">Service</h2>
+
+    <p>
+      <strong>Community Workshops (PREPARADOS)</strong> (2026&ndash;Present)<br>
+      Assisting Dr. Blanche Wright in facilitating an evidence-informed family workshop aimed at supporting Latinx parents in having conversations with their children surrounding immigration enforcement. Collaborated with the following organizations: Heart of Los Angeles (HOLA) and Latino Network
+    </p>
+
+    <p>
+      <strong>UNEO, Inc., Student Contributor</strong> (2022&ndash;2023)<br>
+      Contributed to the development of a mental health app dedicated to aiding adolescents, providing bridges to mental health resources. Advocated for research-based practices to inform and assist users in addressing stressors and implementing stress relief strategies, and offered support in various aspects of the app's creation and functionality
+    </p>
+
+    <h2 id="skills">Skills</h2>
+
+    <p>
+      <strong>Languages:</strong> English &amp; Spanish<br>
+      <strong>Research &amp; Data Analysis:</strong> SPSS, AMOS, Qualtrics, survey design, literature review &amp; synthesis, quantitative/qualitative data management and cleaning
+    </p>
+
   </div>
-
-  <h1>Hi! I'm Gabriel.</h1>
-
-  <p>
-    Add introductory paragraph here.
-  </p>
-
-  <p>
-    Add academic and research interests here.
-  </p>
-
-  <p>
-    Add additional professional information here.
-  </p>
-
-  <p>
-    Add interests and contact information here.
-  </p>
-
-  <div style="clear: both;"></div>
-
-  <h2 id="publications">Selected Publications</h2>
-
-  <div class="publication">
-    <span class="publication-title">Publication title placeholder one</span>
-    <span class="publication-authors">Author names placeholder</span>
-    <span class="publication-details">Journal / Conference (2026) <a href="#">[Paper]</a></span>
-  </div>
-
-  <div class="publication">
-    <span class="publication-title">Publication title placeholder two</span>
-    <span class="publication-authors">Author names placeholder</span>
-    <span class="publication-details">Journal / Conference (2026) <a href="#">[Paper]</a></span>
-  </div>
-
-  <div class="publication">
-    <span class="publication-title">Publication title placeholder three</span>
-    <span class="publication-authors">Author names placeholder</span>
-    <span class="publication-details">Journal / Conference (2026) <a href="#">[Paper]</a></span>
-  </div>
-
-  <div class="publication">
-    <span class="publication-title">Publication title placeholder four</span>
-    <span class="publication-authors">Author names placeholder</span>
-    <span class="publication-details">Journal / Conference (2025) <a href="#">[Paper]</a></span>
-  </div>
-
-  <div class="publication">
-    <span class="publication-title">Publication title placeholder five</span>
-    <span class="publication-authors">Author names placeholder</span>
-    <span class="publication-details">Journal / Conference (2025) <a href="#">[Paper]</a></span>
-  </div>
-
-  <div class="publication">
-    <span class="publication-title">Publication title placeholder six</span>
-    <span class="publication-authors">Author names placeholder</span>
-    <span class="publication-details">Journal / Conference (2025) <a href="#">[Paper]</a></span>
-  </div>
-
-  <div class="publication">
-    <span class="publication-title">Publication title placeholder seven</span>
-    <span class="publication-authors">Author names placeholder</span>
-    <span class="publication-details">Journal / Conference (2025) <a href="#">[Paper]</a></span>
-  </div>
-
-  <div class="publication">
-    <span class="publication-title">Publication title placeholder eight</span>
-    <span class="publication-authors">Author names placeholder</span>
-    <span class="publication-details">Journal / Conference (2025) <a href="#">[Paper]</a></span>
-  </div>
-
-  <div class="publication">
-    <span class="publication-title">Publication title placeholder nine</span>
-    <span class="publication-authors">Author names placeholder</span>
-    <span class="publication-details">Journal / Conference (2024) <a href="#">[Paper]</a></span>
-  </div>
-
-  <div class="publication">
-    <span class="publication-title">Publication title placeholder ten</span>
-    <span class="publication-authors">Author names placeholder</span>
-    <span class="publication-details">Journal / Conference (2024) <a href="#">[Paper]</a></span>
-  </div>
-
-  <p class="equal">* = Equal contribution</p>
-
-  <h2>Teaching</h2>
-
-  <p>Course placeholder: Teaching Assistant, Semester</p>
-  <p>Course placeholder: Teaching Assistant, Semester</p>
-
 </main>
 
-<footer>
+<footer class="site-footer h-card">
   <div class="wrapper">
-    Gabriel Alaniz
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Gabriel Alaniz</li>
+          <li><a class="u-email" href="mailto:galaniz@uoregon.edu">galaniz@uoregon.edu</a></li>
+        </ul>
+      </div>
+      <div class="footer-col footer-col-2">
+        <p>Gabriel Alaniz, psychology researcher and visiting scholar at the University of Oregon.</p>
+      </div>
+    </div>
   </div>
 </footer>
 
-<script>
-function toggleDarkMode() {
-  document.body.classList.toggle("dark-mode");
-
-  const button = document.querySelector(".moon");
-
-  button.textContent =
-    document.body.classList.contains("dark-mode")
-      ? "☀️"
-      : "🌙";
-}
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>

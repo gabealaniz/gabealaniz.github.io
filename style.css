@@ -1,0 +1,305 @@
+/* ------------------------------------------------------------------
+   Styles mirror the Jekyll "Minima" theme (v2.5) used by the
+   reference site, plus its dark-mode layer.
+------------------------------------------------------------------- */
+
+/* Reset */
+body, h1, h2, h3, h4, h5, h6, p, blockquote, pre, hr, dl, dd, ol, ul, figure {
+  margin: 0;
+  padding: 0;
+}
+
+/* Base */
+body {
+  font: 400 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji",
+        "Segoe UI Emoji", "Segoe UI Symbol";
+  color: #111;
+  background-color: #fdfdfd;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-feature-settings: "kern" 1;
+  font-kerning: normal;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+h1, h2, h3, h4, h5, h6, p, blockquote, pre, ul, ol, dl, figure {
+  margin-bottom: 15px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 400;
+}
+
+img {
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+/* Links */
+a {
+  color: #2a7ae2;
+  text-decoration: none;
+}
+a:visited {
+  color: #1756a9;
+}
+a:hover {
+  color: #111;
+  text-decoration: underline;
+}
+
+/* Wrapper */
+.wrapper {
+  max-width: 740px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 30px;
+  padding-left: 30px;
+}
+.wrapper:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+@media (max-width: 800px) {
+  .wrapper {
+    max-width: 770px;
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+}
+
+/* Header */
+.site-header {
+  border-top: 5px solid #424242;
+  border-bottom: 1px solid #e8e8e8;
+  min-height: 55.95px;
+  position: relative;
+}
+
+.site-title {
+  font-size: 26px;
+  font-weight: 300;
+  line-height: 54px;
+  letter-spacing: -1px;
+  margin-bottom: 0;
+  float: left;
+}
+.site-title, .site-title:visited {
+  color: #424242;
+}
+
+.site-nav {
+  float: right;
+  line-height: 54px;
+}
+.site-nav input[type="checkbox"] {
+  display: none;
+}
+.site-nav .menu-icon {
+  display: none;
+}
+.site-nav .page-link {
+  color: #111;
+  line-height: 1.5;
+}
+.site-nav .page-link:not(:last-child) {
+  margin-right: 20px;
+}
+
+@media (max-width: 600px) {
+  .site-nav {
+    position: absolute;
+    top: 9px;
+    right: 15px;
+    background-color: #fdfdfd;
+    border: 1px solid #e8e8e8;
+    border-radius: 5px;
+    text-align: right;
+  }
+  .site-nav label[for="nav-trigger"] {
+    display: block;
+    float: right;
+    width: 36px;
+    height: 36px;
+    z-index: 2;
+    cursor: pointer;
+  }
+  .site-nav .menu-icon {
+    display: block;
+    float: right;
+    width: 36px;
+    height: 26px;
+    line-height: 0;
+    padding-top: 10px;
+    text-align: center;
+  }
+  .site-nav .menu-icon > svg {
+    fill: #424242;
+  }
+  .site-nav input ~ .trigger {
+    clear: both;
+    display: none;
+  }
+  .site-nav input:checked ~ .trigger {
+    display: block;
+    padding-bottom: 5px;
+  }
+  .site-nav .page-link {
+    display: block;
+    margin-left: 20px;
+    padding: 5px 10px;
+  }
+  .site-nav .page-link:not(:last-child) {
+    margin-right: 0;
+  }
+}
+
+/* Page content */
+.page-content {
+  padding: 30px 0;
+  flex: 1;
+}
+
+/* Footer */
+.site-footer {
+  border-top: 1px solid #e8e8e8;
+  padding: 30px 0;
+}
+.contact-list {
+  list-style: none;
+  margin-left: 0;
+}
+.footer-col-wrapper {
+  font-size: 15px;
+  color: #828282;
+  margin-left: -15px;
+}
+.footer-col {
+  float: left;
+  margin-bottom: 15px;
+  padding-left: 15px;
+}
+.footer-col-1 {
+  width: calc(35% - 15px);
+}
+.footer-col-2 {
+  width: calc(65% - 15px);
+}
+@media (max-width: 800px) {
+  .footer-col-1,
+  .footer-col-2 {
+    width: calc(50% - 15px);
+  }
+}
+@media (max-width: 600px) {
+  .footer-col {
+    float: none;
+    width: calc(100% - 15px);
+  }
+}
+
+/* Profile photo (swap the placeholder div for an <img> when ready) */
+.profile-photo {
+  float: right;
+  width: 400px;
+  max-width: 100%;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+.profile-placeholder {
+  aspect-ratio: 4 / 5;
+  background: #eee;
+  border: 1px solid #ddd;
+  color: #888;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ------------------------------------------------------------------
+   Dark mode
+------------------------------------------------------------------- */
+body {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+body.dark-mode {
+  background-color: #1a1a1a;
+  color: #e0e0e0;
+}
+body.dark-mode a {
+  color: #6eb5ff;
+}
+body.dark-mode a:visited {
+  color: #d98fff;
+}
+body.dark-mode .site-header {
+  background-color: #2d2d2d;
+  border-bottom: 1px solid #444;
+}
+body.dark-mode .site-footer {
+  background-color: #2d2d2d;
+  border-top: 1px solid #444;
+}
+body.dark-mode .profile-placeholder {
+  background: #2d2d2d;
+  border-color: #444;
+  color: #aaa;
+}
+@media (max-width: 600px) {
+  body.dark-mode .site-nav {
+    background-color: #2d2d2d;
+    border-color: #444;
+  }
+  body.dark-mode .site-nav .menu-icon > svg {
+    fill: #e0e0e0;
+  }
+}
+
+/* Dark mode toggle button */
+.dark-mode-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #333;
+  color: white;
+  border: 2px solid white;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  font-size: 28px;
+  cursor: pointer;
+  z-index: 9999;
+  transition: background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+.dark-mode-toggle:hover {
+  background-color: #555;
+}
+body.dark-mode .dark-mode-toggle {
+  background-color: #f0f0f0;
+  color: #333;
+  border: 2px solid #333;
+}
+body.dark-mode .dark-mode-toggle:hover {
+  background-color: #ddd;
+}
+
+/* Lists (Minima) */
+ul, ol {
+  margin-left: 30px;
+}
+li > ul, li > ol {
+  margin-bottom: 0;
+}
+
+/* Resource list headings on the Students page */
+.resource-group {
+  margin-bottom: 5px;
+}
